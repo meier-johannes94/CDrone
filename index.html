@@ -46,27 +46,27 @@
           <h1 class="title is-1 publication-title">CARLA Drone: Monocular 3D Object Detection from a Different Perspective</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://www.linkedin.com/in/johannes-meier-52a159b4/">Johannes Meier</a><sup>1,2,3</sup>,</span>
+              <a href="https://www.linkedin.com/in/johannes-meier-52a159b4/">Johannes Meier</a><sup>1,2,3</sup>&nbsp;&nbsp;&nbsp;</span>
             <span class="author-block">
-              <a href="https://www.linkedin.com/in/luca-scalerandi">Luca Scalerandi</a><sup>1,2</sup>,</span>
+              <a href="https://www.linkedin.com/in/luca-scalerandi">Luca Scalerandi</a><sup>1,2</sup></span>&nbsp;&nbsp;&nbsp;
             <span class="author-block">
-              <a href="https://www.linkedin.com/in/oussema-dhaouadi/">Oussema Dhaouadi</a><sup>1,2,3</sup>,
+              <a href="https://www.linkedin.com/in/oussema-dhaouadi/">Oussema Dhaouadi</a><sup>1,2,3</sup>
+            </span><br>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/jacqueskaiser/">Jacques Kaiser</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
             </span>
             <span class="author-block">
-              <a href="https://www.linkedin.com/in/jacqueskaiser/">Jacques Kaiser</a><sup>1</sup>,
+              <a href="https://arnike.github.io/">Nikita Araslanov</a><sup>2,3</sup>&nbsp;&nbsp;&nbsp;
             </span>
             <span class="author-block">
-              <a href="https://arnike.github.io/">Nikita Araslanov</a><sup>2,3</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://cvg.cit.tum.de/members/cremers">Daniel Cremers</a><sup>2,3</sup>,
+              <a href="https://cvg.cit.tum.de/members/cremers">Daniel Cremers</a><sup>2,3</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>DeepScenario</span>
-            <span class="author-block"><sup>2</sup>TUM</span>
-            <span class="author-block"><sup>3</sup>MCML</span>
+            <span class="author-block"><sup>1</sup> DeepScenario</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup> TUM</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>3</sup> MCML</span>
           </div>
 
           <div class="column has-text-centered">
@@ -127,7 +127,7 @@
              alt="Views (Waymo, Rope3D, CDrone) in comparison."/>
       </div>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf"></span>We perform Monocular 3D Object Detection from the Car View (<a href="https://arxiv.org/pdf/1912.04838">Waymo</a>), Traffic View (<a href="https://arxiv.org/pdf/2203.13608">Rope3D</a>) and Drone View (<b>CDrone, Novel!</b>) perspective. We achieve on par or substantially higher performance than previous state of the art methods across all datasets.
+        <span class="dnerf"></span>We perform Monocular 3D Object Detection from the Car View (<a href="https://arxiv.org/pdf/1912.04838">Waymo</a>), Traffic View (<a href="https://arxiv.org/pdf/2203.13608">Rope3D</a>) and Drone View (<b><a href="https://cvg.cit.tum.de/webshare/g/cdrone/">CDrone</a>, Ours</b>) perspective. We achieve on par or substantially higher performance than previous state of the art methods across all datasets.
       </h2>
     </div>
   </div>
@@ -246,7 +246,7 @@
         It is divided into 24 training (21,600 images), 9 validation (8,100 images) and 9 test locations (8,100 images). 
         To foster future research we also release Track IDs, depth maps as well instance segmentation masks along with 2D and 3D bounding box labels.
         Annotations are provided in the <a href="https://github.com/facebookresearch/omni3d/blob/main/DATA.md">OMNI3D format</a>, 
-        and our standalone evaluation toolkit enables 3D Average Precision evaluation with full support for <i>SO(3)</i> rotations.
+        and our <a href="https://github.com/meier-johannes94/EvalMono3D">evaluation toolkit</a> enables 3D Average Precision evaluation with full support for <i>SO(3)</i> rotations.
       </p>
     </div>
     <div class="columns is-centered">
@@ -319,6 +319,18 @@
             alt="CDrone sample image" style="height: 140px; object-fit: cover;"/></center>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <h2 class="title is-5">Usage of the dataset</h2>
+      <div class="content has-text-justified">
+        <p>
+          <ul>
+            <li>Download the dataset from <a href="https://cvg.cit.tum.de/webshare/g/cdrone/">here</a> into a separate folder and call <i>cat part_* > cdrone_combined.zip; unzip cdrone_combined.zip</i></li>
+            <li>Objects with a visibility below 0.2 are not used in training and evaluation</li>
+          </ul>
+        </p>
       </div>
     </div>
 
