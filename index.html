@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nerfies: Deformable Neural Radiance Fields</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <style>
+        .text_container {
+            display: flex;
+            align-items: center; /* Vertically center items */
+        }
+        .text_container a img {
+            margin-left: 5px; /* Optional: Space between image and text */
+        }
+  </style>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">CARLA Drone: Monocular 3D Object Detection from a Different Perspective</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/johannes-meier-52a159b4/">Johannes Meier</a><sup>1,2,3</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/luca-scalerandi">Luca Scalerandi</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/oussema-dhaouadi/">Oussema Dhaouadi</a><sup>1,2,3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/jacqueskaiser/">Jacques Kaiser</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://arnike.github.io/">Nikita Araslanov</a><sup>2,3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://cvg.cit.tum.de/members/cremers">Daniel Cremers</a><sup>2,3</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>DeepScenario</span>
+            <span class="author-block"><sup>2</sup>TUM</span>
+            <span class="author-block"><sup>3</sup>MCML</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <img src="./static/images/teaser.png"
+             class="interpolation-image"
+             alt="Views (Waymo, Rope3D, CDrone) in comparison."/>
+      </div>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf"></span>We perform Monocular 3D Object Detection from the Car View (<a href="https://arxiv.org/pdf/1912.04838">Waymo</a>), Traffic View (<a href="https://arxiv.org/pdf/2203.13608">Rope3D</a>) and Drone View (<b>CDrone, Novel!</b>) perspective. We achieve on par or substantially higher performance than previous state of the art methods across all datasets.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p> 
+            Existing techniques for monocular 3D detection have a serious restriction. They tend to perform well only on a limited set of benchmarks, 
+            faring well either on ego-centric car views or on traffic camera views, but rarely on both. 
+            To encourage progress, this work advocates for an extended evaluation of 3D detection frameworks across different camera perspectives. 
+          </p>
+          <p>
+            We make two key contributions. First, we introduce the CARLA Drone dataset, CDrone. Simulating drone views, it substantially expands the diversity of 
+            camera perspectives in existing benchmarks. Despite its synthetic nature, CDrone represents a real-world challenge. 
+            To show this, we confirm that previous techniques struggle to perform well both on CDrone and a real-world in-house 3D drone dataset. 
+          </p>
+          <p>
+            Second, we develop an effective data augmentation pipeline called GroundMix. 
+            Its distinguishing element is the use of the ground for creating 3D-consistent augmentation of a training image. 
+            GroundMix significantly boosts the detection accuracy of a lightweight one-stage detector. 
+            In our expanded evaluation setup, we achieve the average precision on par with or sub-stantially higher than the previous state of the art across all datasets.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+<!-- 
+    Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <img src="./static/images/cdrone/2024-06-01T18-04-33_0128.jpg"
+             class="interpolation-image"
+             alt="CDrone sample image" height="300"/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/cdrone/2024-06-01T19-45-46_0586.jpg"
+             class="interpolation-image"
+             alt="CDrone sample image" height="300"/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/cdrone/2024-06-01T19-50-47_0572.jpg"
+             class="interpolation-image"
+             alt="CDrone sample image" height="300"/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/cdrone/2024-06-01T20-28-51_0440.jpg"
+             class="interpolation-image"
+             alt="CDrone sample image" height="300"/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/cdrone/2024-06-01T20-34-23_0612.jpg"
+             class="interpolation-image"
+             alt="CDrone sample image" height="300"/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/cdrone/2024-06-01T20-59-15_0274.jpg"
+             class="interpolation-image"
+             alt="CDrone sample image" height="300"/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/cdrone/2024-06-01T21-17-56_0050.jpg"
+             class="interpolation-image"
+             alt="CDrone sample image" height="300"/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/cdrone/2024-06-01T21-43-49_0424.jpg"
+             class="interpolation-image"
+             alt="CDrone sample image" height="300"/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/cdrone/2024-06-01T22-13-59_1408.jpg"
+             class="interpolation-image"
+             alt="CDrone sample image" height="300"/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/cdrone/2024-06-01T21-49-29_1010.jpg"
+             class="interpolation-image"
+             alt="CDrone sample image" height="300"/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/cdrone/2024-06-01T23-48-29_1656.jpg"
+             class="interpolation-image"
+             alt="CDrone sample image" height="300"/>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/images/cdrone/2024-06-02T20-09-21_0790.jpg"
+             class="interpolation-image"
+             alt="CDrone sample image" height="300"/>
+        </div>
+      </div>
+    </div>
+    <p><center>Our novel CDrone dataset</center></p>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Dataset Properties</h2>
+    <div class="content has-text-justified">
+      <p>
+        CDrone comprises 42 locations across 7 worlds within the Carla simulation environment, encompassing urban and rural landscapes. 
+        Each recording is populated with 265 vehicles. With 900 images per location captured at a rate of 12.5 frames per second and a resolution of 1920x1080 pixel, 
+        the dataset features a mixture of nighttime, daytime, dawn and rainy scenes.
+        In total, CDrone contains 174,958 cars and 18,556 trucks annotations.
+        It is divided into 24 training (21,600 images), 9 validation (8,100 images) and 9 test locations (8,100 images). 
+        To foster future research we also release Track IDs, depth maps as well instance segmentation masks along with 2D and 3D bounding box labels.
+        Annotations are provided in the <a href="https://github.com/facebookresearch/omni3d/blob/main/DATA.md">OMNI3D format</a>, 
+        and our standalone evaluation toolkit enables 3D Average Precision evaluation with full support for <i>SO(3)</i> rotations.
+      </p>
+    </div>
+    <div class="columns is-centered">
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-5">2D & 3D Bounding Boxes</h2>
+          <img src="./static/images/cdrone/2024-06-01T18-04-33_0128.jpg"
+             class="interpolation-image"
+             alt="CDrone sample image" height="300"/>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-5">Depth Maps</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="./static/images/cdrone/2024-06-01T18-04-33_0128_depth_gray.jpg"
+            class="interpolation-image"
+            alt="CDrone sample image" height="300"/>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <h2 class="title is-5">Inst. Segmentation Masks</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <img src="./static/images/cdrone/2024-06-01T18-04-33_0128_seg.png"
+            class="interpolation-image"
+            alt="CDrone sample image" height="300"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+        <center><img src="./static/images/stats/datasets_depth.svg"
+             class="interpolation-image"
+             alt="CDrone sample image" style="height: 140px; object-fit: cover;"/></center>
+        </div>
+      </div>
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <center></center><img src="./static/images/stats/datasets_angle.svg"
+            class="interpolation-image"
+            alt="CDrone sample image" style="height: 140px; object-fit: cover;"/></center>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <center></center><img src="./static/images/stats/datasets_bbox_width.svg"
+            class="interpolation-image"
+            alt="CDrone sample image" style="height: 140px; object-fit: cover;"/></center>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <center></center><img src="./static/images/stats/datasets_bbox_height.svg"
+            class="interpolation-image"
+            alt="CDrone sample image" style="height: 140px; object-fit: cover;"/></center>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Real-World Drone Experiments</h2>
+        <!-- Interpolating. -->
+        <div class="content has-text-justified">
+          <p>
+            We also conduct experiments on our in-house real-world drone dataset, 
+            with similar results validating the reliability of our synthetic data and the effectiveness of the CDrone benchmark.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/real/2022-04-25T16-21-24_00800.jpg_0.6_aug.png"
+                 class="interpolation-image"
+                 alt="Real-world drone data."/>
+          </div>
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/real/2022-04-28T15-03-06_0400.jpg_0.8_aug.png"
+                 class="interpolation-image"
+                 alt="Real-world drone data."/>
+          </div>
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/real/2023-09-26T16-31-44_00000.jpg_0.5_aug.png"
+                 class="interpolation-image"
+                 alt="Real-world drone data."/>
+          </div>
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/real/2024-04-15T14-09-10_00000.jpg_0.8_aug.png"
+                 class="interpolation-image"
+                 alt="Real-world drone data."/>
+          </div>
+      </div>
+      <div class="text_container">
+      For more information about the data visit <a href="https://www.deepscenario.com/"><img src="./static/images/dsc.svg" height="12px"></a>.
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{meier2024cdrone,
+  author    = {Meier, Johannes and Scalerandi, Luca and Dhaouadi, Oussema and Kaiser, Jacques and Araslanov Nikita and Cremers, Daniel},
+  title     = {CARLA Drone: Monocular 3D Object Detection from a Different Perspective},
+  journal   = {GCPR},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
