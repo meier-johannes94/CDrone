@@ -127,7 +127,7 @@
              alt="Views (Waymo, Rope3D, CDrone) in comparison."/>
       </div>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf"></span>We perform Monocular 3D Object Detection from the Car View (<a href="https://arxiv.org/pdf/1912.04838">Waymo</a>), Traffic View (<a href="https://arxiv.org/pdf/2203.13608">Rope3D</a>) and Drone View (<b><a href="https://cvg.cit.tum.de/webshare/g/cdrone/data/">CDrone</a>, Ours</b>) perspective. We achieve on par or substantially higher performance than previous state of the art methods across all datasets.
+        <span class="dnerf"></span>We perform Monocular 3D Object Detection from the car view (<a href="https://arxiv.org/pdf/1912.04838">Waymo</a>), traffic view (<a href="https://arxiv.org/pdf/2203.13608">Rope3D</a>) and drone view (<b><a href="https://cvg.cit.tum.de/webshare/g/cdrone/data/">CDrone</a>, Ours</b>) perspective. We achieve on par or substantially higher performance than previous state of the art methods across all datasets.
       </h2>
     </div>
   </div>
@@ -228,7 +228,7 @@
         </div>
       </div>
     </div>
-    <p><center>Our novel CDrone dataset</center></p>
+    <p><br><center><h2 class="title is-5">Our novel CDrone dataset</h2></center></p>
   </div>
 </section>
 
@@ -242,20 +242,20 @@
         CDrone comprises 42 locations across 7 worlds within the Carla simulation environment, encompassing urban and rural landscapes. 
         Each recording is populated with 265 vehicles. With 900 images per location captured at a rate of 12.5 frames per second and a resolution of 1920x1080 pixel, 
         the dataset features a mixture of nighttime, daytime, dawn and rainy scenes.
-        In total, CDrone contains 174,958 cars and 18,556 trucks annotations.
+        In total, CDrone contains 174,958 car and 18,556 truck annotations.
         It is divided into 24 training (21,600 images), 9 validation (8,100 images) and 9 test locations (8,100 images). 
-        To foster future research we also release Track IDs, depth maps as well instance segmentation masks along with 2D and 3D bounding box labels.
+        To foster future research, we also release track IDs, depth maps as well instance segmentation masks along with 2D and 3D bounding box labels.
         Annotations are provided in the <a href="https://github.com/facebookresearch/omni3d/blob/main/DATA.md">OMNI3D format</a>, 
-        and our <a href="https://github.com/meier-johannes94/EvalMono3D">evaluation toolkit</a> enables 3D Average Precision evaluation with full support for <i>SO(3)</i> rotations.
+        and our <a href="https://github.com/meier-johannes94/EvalMono3D">evaluation toolkit</a> enables 3D average precision evaluation with full support for <i>SO(3)</i> rotations.
       </p>
     </div>
     <div class="columns is-centered">
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-5">2D & 3D Bounding Boxes</h2>
+          <h2 class="title is-5"><center>2D & 3D Bounding Boxes</center></h2>
           <img src="./static/images/cdrone/2024-06-01T18-04-33_0128.jpg"
-             class="interpolation-image"
+             class="interpolation-image" style="border-radius: 10px; overflow: hidden;"
              alt="CDrone sample image" height="300"/>
         </div>
       </div>
@@ -263,21 +263,21 @@
 
       <!-- Matting. -->
       <div class="column">
-        <h2 class="title is-5">Depth Maps</h2>
+        <h2 class="title is-5"><center>Depth Maps</center></h2>
         <div class="columns is-centered">
           <div class="column content">
             <img src="./static/images/cdrone/2024-06-01T18-04-33_0128_depth_gray.jpg"
-            class="interpolation-image"
+            class="interpolation-image" style="border-radius: 10px; overflow: hidden;"
             alt="CDrone sample image" height="300"/>
           </div>
         </div>
       </div>
       <div class="column">
-        <h2 class="title is-5">Inst. Segmentation Masks</h2>
+        <h2 class="title is-5"><center>Inst. Segmentation Masks</center></h2>
         <div class="columns is-centered">
           <div class="column content">
             <img src="./static/images/cdrone/2024-06-01T18-04-33_0128_seg.png"
-            class="interpolation-image"
+            class="interpolation-image" style="border-radius: 10px; overflow: hidden;"
             alt="CDrone sample image" height="300"/>
           </div>
         </div>
@@ -290,7 +290,7 @@
         <div class="content">
         <center><img src="./static/images/stats/datasets_depth.svg"
              class="interpolation-image"
-             alt="CDrone sample image" style="height: 140px; object-fit: cover;"/></center>
+             alt="CDrone sample image" style="height: 150px; object-fit: cover;"/></center>
         </div>
       </div>
       <div class="column">
@@ -298,7 +298,7 @@
           <div class="column content">
             <center></center><img src="./static/images/stats/datasets_angle.svg"
             class="interpolation-image"
-            alt="CDrone sample image" style="height: 140px; object-fit: cover;"/></center>
+            alt="CDrone sample image" style="height: 150px; object-fit: cover;"/></center>
           </div>
         </div>
       </div>
@@ -307,7 +307,7 @@
           <div class="column content">
             <center></center><img src="./static/images/stats/datasets_bbox_width.svg"
             class="interpolation-image"
-            alt="CDrone sample image" style="height: 140px; object-fit: cover;"/></center>
+            alt="CDrone sample image" style="height: 150px; object-fit: cover;"/></center>
           </div>
         </div>
       </div>
@@ -316,7 +316,7 @@
           <div class="column content">
             <center></center><img src="./static/images/stats/datasets_bbox_height.svg"
             class="interpolation-image"
-            alt="CDrone sample image" style="height: 140px; object-fit: cover;"/></center>
+            alt="CDrone sample image" style="height: 150px; object-fit: cover;"/></center>
           </div>
         </div>
       </div>
@@ -327,8 +327,8 @@
       <div class="content has-text-justified">
         <p>
           <ul>
-            <li>Download the dataset from <a href="https://cvg.cit.tum.de/webshare/g/cdrone/data/">here</a> into a separate folder and call <i>cat part_* > cdrone_combined.zip; unzip cdrone_combined.zip</i></li>
-            <li>Objects with a visibility below 0.2 are not used in training and evaluation</li>
+            <li>Download the dataset from <a href="https://cvg.cit.tum.de/webshare/g/cdrone/data/">here</a> into a separate folder and execute <i>cat part_* > cdrone_combined.zip; unzip cdrone_combined.zip</i></li>
+            <li>Objects with a visibility below 0.2 are neither used for training, nor for evaluation</li>
           </ul>
         </p>
       </div>
@@ -337,7 +337,44 @@
 
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3"><br>Real-World Drone Experiments</h2>
+        <h2 class="title is-3"><br>Experiments</h2>
+        <center>
+        <div class="columns is-centered">
+          <!-- Visual Effects. -->
+          <div class="column">
+            <div class="content">
+              <h2 class="title is-5"><center>CDrone</center></h2>
+              <img src="./static/images/results/cdrone.jpg"
+                 class="interpolation-image" style="border-radius: 10px; overflow: hidden; height: 170px"
+                 alt="CDrone sample image" height="300"/>
+            </div>
+          </div>
+          <!--/ Visual Effects. -->
+    
+          <!-- Matting. -->
+          <div class="column">
+            <h2 class="title is-5"><center>Rope3D</center></h2>
+            <div class="columns is-centered">
+              <div class="column content">
+                <img src="./static/images/results/rope3d.jpg"
+                class="interpolation-image" style="border-radius: 10px; overflow: hidden; height: 170px"
+                alt="CDrone sample image" height="300"/>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <h2 class="title is-5"><center>Waymo</center></h2>
+            <div class="columns is-centered">
+              <div class="column content">
+                <img src="./static/images/results/waymo.png"
+                class="interpolation-image" style="border-radius: 10px; overflow: hidden; height: 170px"
+                alt="CDrone sample image" height="300"/>
+              </div>
+            </div>
+          </div>
+        </div></center>
+    
+
         <!-- Interpolating. -->
         <div class="content has-text-justified">
           <p>
@@ -368,7 +405,7 @@
           </div>
       </div>
       <div class="text_container">
-      For more information about the data visit <a href="https://www.deepscenario.com/"><img src="./static/images/dsc.svg" height="12px"></a>.
+      For more real-world examples, visit &nbsp; <a href="https://app.deepscenario.com/">DeepScenario's Web App</a>.
       </div>
     </div>
 
@@ -382,7 +419,7 @@
     <h2 class="title">BibTeX</h2>
     <pre><code>@article{meier2024cdrone,
   author    = {Meier, Johannes and Scalerandi, Luca and Dhaouadi, Oussema and Kaiser, Jacques and Araslanov Nikita and Cremers, Daniel},
-  title     = {CARLA Drone: Monocular 3D Object Detection from a Different Perspective},
+  title     = {{CARLA Drone:} Monocular 3D Object Detection from a Different Perspective},
   journal   = {GCPR},
   year      = {2024},
 }</code></pre>
